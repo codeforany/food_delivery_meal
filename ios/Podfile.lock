@@ -1,0 +1,22 @@
+PODS:
+  - Flutter (1.0.0)
+  - "otp_pin_field (1.2.0+2)":
+    - Flutter
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - otp_pin_field (from `.symlinks/plugins/otp_pin_field/ios`)
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  otp_pin_field:
+    :path: ".symlinks/plugins/otp_pin_field/ios"
+
+SPEC CHECKSUMS:
+  Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
+  otp_pin_field: 0f0935fafc56252e6a48a5a045ac689b6bad3857
+
+PODFILE CHECKSUM: 70d9d25280d0dd177a5f637cdb0f0b0b12c6a189
+
+COCOAPODS: 1.12.1
