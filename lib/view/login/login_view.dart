@@ -3,6 +3,7 @@ import 'package:food_delivery/common/color_extension.dart';
 import 'package:food_delivery/common_widget/round_button.dart';
 import 'package:food_delivery/view/login/rest_password_view.dart';
 import 'package:food_delivery/view/login/sing_up_view.dart';
+import 'package:food_delivery/view/on_boarding/on_boarding_view.dart';
 
 import '../../common_widget/round_icon_button.dart';
 import '../../common_widget/round_textfield.dart';
@@ -65,7 +66,14 @@ class _LoginViewState extends State<LoginView> {
               const SizedBox(
                 height: 25,
               ),
-              RoundButton(title: "Login", onPressed: () {}),
+              RoundButton(title: "Login", onPressed: () {
+                Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const OnBoardingView(),
+                      ),
+                    );
+              }),
               const SizedBox(
                 height: 4,
               ),
