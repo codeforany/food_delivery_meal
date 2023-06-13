@@ -20,7 +20,7 @@ class _MainTabViewState extends State<MainTabView> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageStorage(bucket: storageBucket, child: selectPageView),
-      // backgroundColor: const Color(0xfff5f5f5),
+      backgroundColor: const Color(0xfff5f5f5),
       floatingActionButtonLocation:
           FloatingActionButtonLocation.miniCenterDocked,
       floatingActionButton: SizedBox(
