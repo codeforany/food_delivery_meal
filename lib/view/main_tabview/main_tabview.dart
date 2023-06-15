@@ -3,6 +3,7 @@ import 'package:food_delivery/common/color_extension.dart';
 import 'package:food_delivery/common_widget/tab_button.dart';
 
 import '../home/home_view.dart';
+import '../menu/menu_view.dart';
 
 class MainTabView extends StatefulWidget {
   const MainTabView({super.key});
@@ -62,7 +63,7 @@ class _MainTabViewState extends State<MainTabView> {
                   onTap: () {
                     if (selctTab != 0) {
                       selctTab = 0;
-                      selectPageView = Container();
+                      selectPageView = const MenuView();
                     }
                     if (mounted) {
                       setState(() {});
