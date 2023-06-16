@@ -4,7 +4,7 @@ import 'package:food_delivery/common_widget/round_textfield.dart';
 
 import '../../common_widget/menu_item_row.dart';
 import '../../common_widget/popular_resutaurant_row.dart';
-
+import 'item_details_view.dart';
 
 class MenuItemsView extends StatefulWidget {
   final Map mObj;
@@ -106,7 +106,9 @@ class _MenuItemsViewState extends State<MenuItemsView> {
                       icon: Image.asset("assets/img/btn_back.png",
                           width: 20, height: 20),
                     ),
-                    const SizedBox(width: 8,),
+                    const SizedBox(
+                      width: 8,
+                    ),
                     Text(
                       widget.mObj["name"].toString(),
                       style: TextStyle(
@@ -128,7 +130,6 @@ class _MenuItemsViewState extends State<MenuItemsView> {
               const SizedBox(
                 height: 20,
               ),
-              
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: RoundTextfield(
@@ -148,7 +149,6 @@ class _MenuItemsViewState extends State<MenuItemsView> {
               const SizedBox(
                 height: 15,
               ),
-             
               ListView.builder(
                 physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
@@ -158,11 +158,16 @@ class _MenuItemsViewState extends State<MenuItemsView> {
                   var mObj = menuItemsArr[index] as Map? ?? {};
                   return MenuItemRow(
                     mObj: mObj,
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const ItemDetailsView()),
+                      );
+                    },
                   );
                 }),
               ),
-              
             ],
           ),
         ),

@@ -12,6 +12,7 @@
 - [Youtube Video Part-3: On Boarding UI & Custom Bottom TabView UI ](https://youtu.be/EaHkIxwYv_Y)
 - [Youtube Video Part-4: Home Tab UI with Category ListView, Popular Restaurants ListView, Most Popular ListView, Recent ListView ](https://youtu.be/8tR-_-VLMb0)
 - [Youtube Video Part-5: Menu Tab UI & Menu Items UI ](https://youtu.be/xhGsV4dzFGs)
+- [Youtube Video Part-6: Food Details UI ](https://youtu.be/apZ_l1MzziQ)
 
 
 UI UX App Design by: [Akila Weerakoon](https://www.behance.net/gallery/108639283/Meal-Monkey-Food-delivery-iOS-mobile-application)
