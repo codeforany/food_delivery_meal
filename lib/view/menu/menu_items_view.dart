@@ -3,7 +3,6 @@ import 'package:food_delivery/common/color_extension.dart';
 import 'package:food_delivery/common_widget/round_textfield.dart';
 
 import '../../common_widget/menu_item_row.dart';
-import '../../common_widget/popular_resutaurant_row.dart';
 import 'item_details_view.dart';
 
 class MenuItemsView extends StatefulWidget {

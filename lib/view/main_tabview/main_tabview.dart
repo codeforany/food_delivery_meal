@@ -4,6 +4,7 @@ import 'package:food_delivery/common_widget/tab_button.dart';
 
 import '../home/home_view.dart';
 import '../menu/menu_view.dart';
+import '../offer/offer_view.dart';
 
 class MainTabView extends StatefulWidget {
   const MainTabView({super.key});
@@ -76,7 +77,7 @@ class _MainTabViewState extends State<MainTabView> {
                   onTap: () {
                     if (selctTab != 1) {
                       selctTab = 1;
-                      selectPageView = Container();
+                      selectPageView = const OfferView();
                     }
                     if (mounted) {
                       setState(() {});
