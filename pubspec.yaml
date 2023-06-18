@@ -37,6 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   otp_pin_field: ^1.2.0+2
   flutter_rating_bar: ^4.0.1
+  image_picker: ^0.8.9
 
 dev_dependencies:
   flutter_test:
