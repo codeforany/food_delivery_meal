@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import '../common/color_extension.dart';
@@ -8,7 +7,14 @@ class RoundIconButton extends StatelessWidget {
   final String title;
   final String icon;
   final Color color;
-  const RoundIconButton({super.key, required this.title, required this.icon, required this.color, required this.onPressed });
+  final double fontSize;
+  const RoundIconButton(
+      {super.key,
+      required this.title,
+      required this.icon,
+      required this.color,
+      this.fontSize = 12,
+      required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +43,7 @@ class RoundIconButton extends StatelessWidget {
               title,
               style: TextStyle(
                   color: TColor.white,
-                  fontSize: 12,
+                  fontSize: fontSize,
                   fontWeight: FontWeight.w500),
             ),
           ],

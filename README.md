@@ -15,6 +15,7 @@
 - [Youtube Video Part-6: Food Details UI - Part1 ](https://youtu.be/apZ_l1MzziQ)
 - [Youtube Video Part-7: Food Details UI - Part2 & Offer Tab UI ](https://youtu.be/GN7cM-O4iTk)
 - [Youtube Video Part-8: Profile Tab UI ](https://youtu.be/uPRfs1-Xno4)
+- [Youtube Video Part-9: Payment Details UI & More Tab UI ](https://youtu.be/ad3VEaQXGNw)
 
 
 UI UX App Design by: [Akila Weerakoon](https://www.behance.net/gallery/108639283/Meal-Monkey-Food-delivery-iOS-mobile-application)

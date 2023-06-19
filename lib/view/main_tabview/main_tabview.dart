@@ -4,6 +4,7 @@ import 'package:food_delivery/common_widget/tab_button.dart';
 
 import '../home/home_view.dart';
 import '../menu/menu_view.dart';
+import '../more/more_view.dart';
 import '../offer/offer_view.dart';
 import '../profile/profile_view.dart';
 
@@ -108,7 +109,7 @@ class _MainTabViewState extends State<MainTabView> {
                   onTap: () {
                     if (selctTab != 4) {
                       selctTab = 4;
-                      selectPageView = Container();
+                      selectPageView = const  MoreView();
                     }
                     if (mounted) {
                       setState(() {});
