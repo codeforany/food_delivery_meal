@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/common/color_extension.dart';
 import 'package:food_delivery/common_widget/round_icon_button.dart';
+import 'package:food_delivery/view/more/add_card_view.dart';
 
 import '../../common_widget/round_button.dart';
 
@@ -87,14 +88,19 @@ class _PaymentDetailsViewState extends State<PaymentDetailsView> {
                 height: 15,
               ),
               Container(
-                decoration: BoxDecoration(color: TColor.textfield, boxShadow: const [
-                  BoxShadow(color: Colors.black26, blurRadius: 15, offset: Offset(0, 9) )
-                ] ),
+                decoration: BoxDecoration(
+                    color: TColor.textfield,
+                    boxShadow: const [
+                      BoxShadow(
+                          color: Colors.black26,
+                          blurRadius: 15,
+                          offset: Offset(0, 9))
+                    ]),
                 child: Column(
                   children: [
-              
                     Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 15,horizontal: 35),
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 15, horizontal: 35),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -105,24 +111,21 @@ class _PaymentDetailsViewState extends State<PaymentDetailsView> {
                                 fontSize: 12,
                                 fontWeight: FontWeight.w700),
                           ),
-              
                           Image.asset(
                             "assets/img/check.png",
                             width: 20,
                             height: 20,
                           ),
-              
-                      ],),
+                        ],
+                      ),
                     ),
-              
                     Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 35),
-                  child: Divider(
-                    color: TColor.secondaryText.withOpacity(0.4),
-                    height: 1,
-                  ),
-                ),
-              
+                      padding: const EdgeInsets.symmetric(horizontal: 35),
+                      child: Divider(
+                        color: TColor.secondaryText.withOpacity(0.4),
+                        height: 1,
+                      ),
+                    ),
                     ListView.builder(
                       physics: const NeverScrollableScrollPhysics(),
                       shrinkWrap: true,
@@ -131,8 +134,8 @@ class _PaymentDetailsViewState extends State<PaymentDetailsView> {
                       itemBuilder: ((context, index) {
                         var cObj = cardArr[index] as Map? ?? {};
                         return Container(
-                          margin:
-                              const EdgeInsets.symmetric(vertical: 15, horizontal: 35),
+                          margin: const EdgeInsets.symmetric(
+                              vertical: 15, horizontal: 35),
                           child: Row(
                             children: [
                               Image.asset(
@@ -168,8 +171,6 @@ class _PaymentDetailsViewState extends State<PaymentDetailsView> {
                         );
                       }),
                     ),
-                  
-              
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 35),
                       child: Divider(
@@ -177,7 +178,6 @@ class _PaymentDetailsViewState extends State<PaymentDetailsView> {
                         height: 1,
                       ),
                     ),
-              
                     Padding(
                       padding: const EdgeInsets.symmetric(
                           vertical: 15, horizontal: 35),
@@ -194,18 +194,15 @@ class _PaymentDetailsViewState extends State<PaymentDetailsView> {
                         ],
                       ),
                     ),
-              
-                     const SizedBox(
+                    const SizedBox(
                       height: 15,
                     ),
                   ],
                 ),
               ),
-
               const SizedBox(
-                    height: 35,
-                  ),
-
+                height: 35,
+              ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25),
                 child: RoundIconButton(
@@ -213,7 +210,16 @@ class _PaymentDetailsViewState extends State<PaymentDetailsView> {
                     icon: "assets/img/add.png",
                     color: TColor.primary,
                     fontSize: 16,
-                    onPressed: () {}),
+                    onPressed: () {
+                      showModalBottomSheet(
+                        isScrollControlled: true,
+                        backgroundColor: Colors.transparent,
+                          context: context,
+                          builder: (context) {
+                            return const AddCardView();
+                          });
+                      // Navigator.push(context, MaterialPageRoute(builder: (context) => const AddCardView() ));
+                    }),
               ),
               const SizedBox(
                 height: 15,
