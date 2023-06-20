@@ -3,6 +3,7 @@ import 'package:food_delivery/common/color_extension.dart';
 import 'package:food_delivery/common_widget/round_textfield.dart';
 
 import '../../common_widget/menu_item_row.dart';
+import '../more/my_order_view.dart';
 import 'item_details_view.dart';
 
 class MenuItemsView extends StatefulWidget {
@@ -108,15 +109,22 @@ class _MenuItemsViewState extends State<MenuItemsView> {
                     const SizedBox(
                       width: 8,
                     ),
-                    Text(
-                      widget.mObj["name"].toString(),
-                      style: TextStyle(
-                          color: TColor.primaryText,
-                          fontSize: 20,
-                          fontWeight: FontWeight.w800),
+                    Expanded(
+                      child: Text(
+                        widget.mObj["name"].toString(),
+                        style: TextStyle(
+                            color: TColor.primaryText,
+                            fontSize: 20,
+                            fontWeight: FontWeight.w800),
+                      ),
                     ),
                     IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const MyOrderView()));
+                      },
                       icon: Image.asset(
                         "assets/img/shopping_cart.png",
                         width: 25,

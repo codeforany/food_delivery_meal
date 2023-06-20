@@ -7,6 +7,7 @@ import '../../common_widget/most_popular_cell.dart';
 import '../../common_widget/popular_resutaurant_row.dart';
 import '../../common_widget/recent_item_row.dart';
 import '../../common_widget/view_all_title_row.dart';
+import '../more/my_order_view.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -122,7 +123,12 @@ class _HomeViewState extends State<HomeView> {
                           fontWeight: FontWeight.w800),
                     ),
                     IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const MyOrderView()));
+                      },
                       icon: Image.asset(
                         "assets/img/shopping_cart.png",
                         width: 25,

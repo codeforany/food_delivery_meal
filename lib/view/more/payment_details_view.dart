@@ -4,6 +4,7 @@ import 'package:food_delivery/common_widget/round_icon_button.dart';
 import 'package:food_delivery/view/more/add_card_view.dart';
 
 import '../../common_widget/round_button.dart';
+import 'my_order_view.dart';
 
 class PaymentDetailsView extends StatefulWidget {
   const PaymentDetailsView({super.key});
@@ -56,7 +57,12 @@ class _PaymentDetailsViewState extends State<PaymentDetailsView> {
                       ),
                     ),
                     IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                         Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const MyOrderView()));
+                      },
                       icon: Image.asset(
                         "assets/img/shopping_cart.png",
                         width: 25,

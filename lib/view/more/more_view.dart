@@ -4,6 +4,7 @@ import 'package:food_delivery/view/more/inbox_view.dart';
 import 'package:food_delivery/view/more/payment_details_view.dart';
 
 import '../../common/color_extension.dart';
+import 'my_order_view.dart';
 import 'notification_view.dart';
 
 class MoreView extends StatefulWidget {
@@ -72,7 +73,12 @@ class _MoreViewState extends State<MoreView> {
                           fontWeight: FontWeight.w800),
                     ),
                     IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const MyOrderView()));
+                      },
                       icon: Image.asset(
                         "assets/img/shopping_cart.png",
                         width: 25,
@@ -101,24 +107,28 @@ class _MoreViewState extends State<MoreView> {
                                         const PaymentDetailsView()));
 
                             break;
+
+                          case "2":
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const MyOrderView()));
                           case "3":
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) =>
                                         const NotificationsView()));
-                           case "4":
+                          case "4":
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) =>
-                                        const InboxView()));
+                                    builder: (context) => const InboxView()));
                           case "5":
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) =>
-                                        const AboutUsView()));
+                                    builder: (context) => const AboutUsView()));
 
                           default:
                         }
