@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:food_delivery/common/color_extension.dart';
 import 'package:food_delivery/common_widget/round_button.dart';
 
+import 'checkout_view.dart';
+
 class MyOrderView extends StatefulWidget {
   const MyOrderView({super.key});
 
@@ -58,7 +60,8 @@ class _MyOrderViewState extends State<MyOrderView> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(vertical: 15 ,horizontal: 25),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 15, horizontal: 25),
                 child: Row(
                   children: [
                     ClipRRect(
@@ -279,7 +282,6 @@ class _MyOrderViewState extends State<MyOrderView> {
                         )
                       ],
                     ),
-
                     const SizedBox(
                       height: 8,
                     ),
@@ -303,20 +305,16 @@ class _MyOrderViewState extends State<MyOrderView> {
                         )
                       ],
                     ),
-
                     const SizedBox(
                       height: 15,
                     ),
-
-                     Divider(
+                    Divider(
                       color: TColor.secondaryText.withOpacity(0.5),
                       height: 1,
                     ),
-
-                     const SizedBox(
+                    const SizedBox(
                       height: 15,
                     ),
-
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -340,15 +338,19 @@ class _MyOrderViewState extends State<MyOrderView> {
                     const SizedBox(
                       height: 25,
                     ),
-
-                    RoundButton(title: "Checkout", onPressed: (){
-
-                    }),
-
+                    RoundButton(
+                        title: "Checkout",
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const CheckoutView(),
+                            ),
+                          );
+                        }),
                     const SizedBox(
                       height: 20,
                     ),
-                    
                   ],
                 ),
               ),
