@@ -1,9 +1,31 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:food_delivery/common/color_extension.dart';
 import 'package:food_delivery/view/main_tabview/main_tabview.dart';
 import 'package:food_delivery/view/on_boarding/startup_view.dart';
 
+import 'common/my_http_overrides.dart';
+
 void main() {
+  HttpOverrides.global = MyHttpOverrides();
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
+}
+
+void configLoading() {
+  EasyLoading.instance
+    ..indicatorType = EasyLoadingIndicatorType.ring
+    ..loadingStyle = EasyLoadingStyle.custom
+    ..indicatorSize = 45.0
+    ..radius = 5.0
+    ..progressColor = TColor.primaryText
+    ..backgroundColor = TColor.primary
+    ..indicatorColor = Colors.yellow
+    ..textColor = TColor.primaryText
+    ..userInteractions = false
+    ..dismissOnTap = false;
 }
 
 class MyApp extends StatelessWidget {
@@ -13,7 +35,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Food Delivery',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         fontFamily: "Metropolis",
@@ -35,9 +57,10 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         // useMaterial3: true,
       ),
-      home: const MainTabView(),
+      home: const StartupView(),
+      builder: (context, child) {
+        return FlutterEasyLoading(child: child);
+      },
     );
   }
 }
-
-

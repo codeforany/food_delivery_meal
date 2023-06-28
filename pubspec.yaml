@@ -40,6 +40,8 @@ dependencies:
   image_picker: ^0.8.9
   google_maps_flutter: ^2.3.1
   custom_map_markers: ^0.0.2+1
+  http: ^1.1.0
+  flutter_easyloading: ^3.0.5
 
 dev_dependencies:
   flutter_test:
