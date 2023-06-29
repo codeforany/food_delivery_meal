@@ -4,6 +4,7 @@ import 'package:food_delivery/view/more/inbox_view.dart';
 import 'package:food_delivery/view/more/payment_details_view.dart';
 
 import '../../common/color_extension.dart';
+import '../../common/service_call.dart';
 import 'my_order_view.dart';
 import 'notification_view.dart';
 
@@ -43,6 +44,12 @@ class _MoreViewState extends State<MoreView> {
     {
       "index": "5",
       "name": "About Us",
+      "image": "assets/img/more_info.png",
+      "base": 0
+    },
+    {
+      "index": "6",
+      "name": "Logout",
       "image": "assets/img/more_info.png",
       "base": 0
     },
@@ -129,6 +136,8 @@ class _MoreViewState extends State<MoreView> {
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) => const AboutUsView()));
+                          case "6":
+                            ServiceCall.logout();
 
                           default:
                         }

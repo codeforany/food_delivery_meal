@@ -188,15 +188,13 @@ class _LoginViewState extends State<LoginView> {
         withSuccess: (responseObj) async {
       Globs.hideHUD();
       if (responseObj[KKey.status] == "1") {
-        mdShowAlert(Globs.appName,
-            responseObj[KKey.message] as String? ?? MSG.success, () {});
+        
+        Globs.udSet( responseObj[KKey.payload] as Map? ?? {} , Globs.userPayload);
+        Globs.udBoolSet(true, Globs.userLogin);
 
-        // Navigator.push(
-        //   context,
-        //   MaterialPageRoute(
-        //     builder: (context) => const OnBoardingView(),
-        //   ),
-        // );
+          Navigator.pushAndRemoveUntil(context,  MaterialPageRoute(
+            builder: (context) => const OnBoardingView(),
+          ), (route) => false);
       } else {
         mdShowAlert(Globs.appName,
             responseObj[KKey.message] as String? ?? MSG.fail, () {});
