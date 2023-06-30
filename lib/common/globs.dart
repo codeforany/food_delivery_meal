@@ -80,7 +80,7 @@ class Globs {
 }
 
 class SVKey {
-  static const mainUrl = "http://localhost:3001";
+  static const mainUrl = "http://192.168.1.5:3001";
   static const baseUrl = '$mainUrl/api/';
   static const nodeUrl = mainUrl;
 
@@ -101,7 +101,7 @@ class KKey {
   static const mobile = "mobile";
   static const address = "address";
   static const userId = "user_id";
-  // static const  = "";
+  static const resetCode = "reset_code";
   // static const  = "";
   // static const  = "";
   // static const  = "";
@@ -121,6 +121,7 @@ class KKey {
 class MSG {
   static const enterEmail = "Please enter your valid email address.";
   static const enterName = "Please enter your name.";
+  static const enterCode = "Please enter valid reset code.";
 
   static const enterMobile = "Please enter your valid mobile number.";
   static const enterAddress = "Please enter your address.";

@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/common/color_extension.dart';
+import 'package:food_delivery/common/extension.dart';
 import 'package:food_delivery/common_widget/round_button.dart';
+import 'package:food_delivery/view/login/new_password_view.dart';
 import 'package:otp_pin_field/otp_pin_field.dart';
-import 'new_password_view.dart';
+
+import '../../common/globs.dart';
+import '../../common/service_call.dart';
 
 class OTPView extends StatefulWidget {
-  const OTPView({super.key});
+  final String email;
+  const OTPView({super.key, required this.email});
 
   @override
   State<OTPView> createState() => _OTPViewState();
@@ -13,6 +18,7 @@ class OTPView extends StatefulWidget {
 
 class _OTPViewState extends State<OTPView> {
   final _otpPinFieldController = GlobalKey<OtpPinFieldState>();
+  String code = "";
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +33,7 @@ class _OTPViewState extends State<OTPView> {
                 height: 64,
               ),
               Text(
-                "We have sent an OTP to your Mobile",
+                "We have sent an OTP to your email",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                     color: TColor.primaryText,
@@ -38,7 +44,8 @@ class _OTPViewState extends State<OTPView> {
                 height: 15,
               ),
               Text(
-                "Please check your mobile number 071*****12\ncontinue to reset your password",
+                "Please check your email ${widget.email}\ncontinue to reset your password",
+                textAlign: TextAlign.center,
                 style: TextStyle(
                     color: TColor.secondaryText,
                     fontSize: 14,
@@ -58,20 +65,20 @@ class _OTPViewState extends State<OTPView> {
                     ///in case you want to change the action of keyboard
                     /// to clear the Otp pin Controller
                     onSubmit: (newCode) {
-                      // code = newCode;
-                      // goNextPage();
-
-                      FocusScope.of(context).requestFocus(FocusNode());
+                      code = newCode;
+                      btnSubmit();
                       /// return the entered pin
                     },
                     onChange: (newCode) {
-                     // code = newCode;
+                      code = newCode;
 
                       /// return the entered pin
                     },
                     onCodeChanged: (newCode) {
-                     // code = newCode;
+                      code = newCode;
                     },
+
+                    fieldWidth: 40,
 
                     /// to decorate your Otp_Pin_Field
                     otpPinFieldStyle: OtpPinFieldStyle(
@@ -88,7 +95,7 @@ class _OTPViewState extends State<OTPView> {
 
                         /// Background Color for active/focused Otp_Pin_Field
                         ),
-                    maxLength: 4,
+                    maxLength: 6,
 
                     /// no of pin field
                     showCursor: true,
@@ -128,16 +135,11 @@ class _OTPViewState extends State<OTPView> {
               RoundButton(
                   title: "Next",
                   onPressed: () {
-                     FocusScope.of(context).requestFocus(FocusNode());
+                    btnSubmit();
                   }),
                 TextButton(
                 onPressed: () {
-                  // Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(
-                  //     builder: (context) => const SignUpView(),
-                  //   ),
-                  // );
+                   serviceCallForgotRequest({"email": widget.email});
                 },
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
@@ -164,5 +166,61 @@ class _OTPViewState extends State<OTPView> {
         ),
       ),
     );
+  }
+
+   //TODO: Action
+  void btnSubmit() {
+    if (code.length != 6) {
+      mdShowAlert(Globs.appName, MSG.enterCode, () {});
+      return;
+    }
+
+    endEditing();
+
+    serviceCallForgotVerify({"email": widget.email, "reset_code": code});
+  }
+
+  //TODO: ServiceCall
+
+  void serviceCallForgotVerify(Map<String, dynamic> parameter) {
+    Globs.showHUD();
+
+    ServiceCall.post(parameter, SVKey.svForgotPasswordVerify,
+        withSuccess: (responseObj) async {
+      Globs.hideHUD();
+      if (responseObj[KKey.status] == "1") {
+        var payloadObj = responseObj[KKey.payload] as Map? ?? {};
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => NewPasswordView(nObj: payloadObj,)));
+      } else {
+        mdShowAlert(Globs.appName,
+            responseObj[KKey.message] as String? ?? MSG.fail, () {});
+      }
+    }, failure: (err) async {
+      Globs.hideHUD();
+      mdShowAlert(Globs.appName, err.toString(), () {});
+    });
+  }
+
+  void serviceCallForgotRequest(Map<String, dynamic> parameter) {
+    Globs.showHUD();
+
+    ServiceCall.post(parameter, SVKey.svForgotPasswordRequest,
+        withSuccess: (responseObj) async {
+      Globs.hideHUD();
+      if (responseObj[KKey.status] == "1") {
+         mdShowAlert(Globs.appName,
+            "reset code successfully", () {});
+       
+      } else {
+        mdShowAlert(Globs.appName,
+            responseObj[KKey.message] as String? ?? MSG.fail, () {});
+      }
+    }, failure: (err) async {
+      Globs.hideHUD();
+      mdShowAlert(Globs.appName, err.toString(), () {});
+    });
   }
 }

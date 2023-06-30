@@ -95,7 +95,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                         fontWeight: FontWeight.w500),
                   ),
                   SizedBox(
-                    height: media.width * 0.3,
+                    height: media.width * 0.20,
                   ),
                 ],
               );
@@ -125,7 +125,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                 }).toList(),
               ),
               SizedBox(
-                height: media.height * 0.22,
+                height: media.height * 0.28,
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25),
